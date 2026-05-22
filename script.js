@@ -22,7 +22,12 @@ function calc() {
         }
     }
 
-    document.getElementById("result").textContent = "最終資産：" + Math.round(total).toLocaleString() + "円"
+    const principal = monthly * 12 * years
+    const profit    = Math.round(total) - principal
+
+    document.getElementById("result-total").textContent     = Math.round(total).toLocaleString() + "円"
+    document.getElementById("result-principal").textContent = principal.toLocaleString() + "円"
+    document.getElementById("result-profit").textContent    = profit.toLocaleString() + "円"
 
     if (myChart) myChart.destroy()
     myChart = new Chart(document.getElementById("chart"), {

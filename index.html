@@ -7,25 +7,27 @@
 <body>
     <h1>積立NISAシミュレーター</h1>
 
+    <input id="monthly" type="number" placeholder="毎月の積立額（円）">
+    <input id="rate"    type="number" placeholder="年利（%）">
+    <input id="years"   type="number" placeholder="積立年数">
+    <button onclick="calc()">計算する</button>
+
+    <p id="result"></p>
+
     <script>
-        // 設定値（今日はベタ書き、明日入力欄から取るようにする）
-        const monthly  = 30000  // 毎月の積立額（円）
-        const yearRate = 0.05   // 年利5%
-        const years    = 20     // 積立年数
+        function calc() {
+            const monthly  = Number(document.getElementById("monthly").value)
+            const yearRate = Number(document.getElementById("rate").value) / 100
+            const years    = Number(document.getElementById("years").value)
 
-        // 年利 → 月利に変換
-        const monthRate = yearRate / 12
+            const monthRate = yearRate / 12
 
-        // 毎月の積立を繰り返す
-        let total = 0
-        for (let month = 1; month <= years * 12; month++) {
-            total = total * (1 + monthRate) + monthly
-
-            // 12ヶ月ごと（年の終わり）だけ表示
-            if (month % 12 === 0) {
-                let year = month / 12
-                console.log(year + "年後：" + Math.round(total).toLocaleString() + "円")
+            let total = 0
+            for (let month = 1; month <= years * 12; month++) {
+                total = total * (1 + monthRate) + monthly
             }
+
+            document.getElementById("result").textContent = "最終資産：" + Math.round(total).toLocaleString() + "円"
         }
     </script>
 </body>

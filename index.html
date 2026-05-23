@@ -1,38 +1,40 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>積立NISAシミュレーター</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1>資産形成</h1>
+    <head>
+        <meta charset="UTF-8">
+        <title>積立NISAシミュレーター</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
 
-    <div class="inputs">
-        <input id="monthly" type="number" placeholder="毎月の積立額（円）">
-        <input id="rate"    type="number" placeholder="年利（%）">
-        <input id="years"   type="number" placeholder="積立年数">
-    </div>
-    <button onclick="calc()">計算する</button>
+    <body>
+        <h1>資産形成</h1>
 
-    <div class="summary">
-        <div class="card">
-            <p>最終資産</p>
-            <span id="result-total">-</span>
+        <div class="inputs">
+            <input id="monthly" type="number" placeholder="毎月の積立額（円）">
+            <input id="rate"    type="number" placeholder="年利（%）">
+            <input id="years"   type="number" placeholder="積立年数">
         </div>
-        <div class="card">
-            <p>元本合計</p>
-            <span id="result-principal">-</span>
-        </div>
-        <div class="card">
-            <p>運用益</p>
-            <span id="result-profit">-</span>
-        </div>
-    </div>
+        <button onclick="calc()">計算する</button>
 
-    <canvas id="chart"></canvas>
+        <div class="summary">
+            <div class="card">
+                <p>最終資産</p>
+                <span id="result-total">-</span>
+            </div>
+            <div class="card">
+                <p>元本合計</p>
+                <span id="result-principal">-</span>
+            </div>
+            <div class="card">
+                <p>運用益</p>
+                <span id="result-profit">-</span>
+            </div>
+        </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
-    <script src="script.js"></script>
-</body>
+        <canvas id="chart"></canvas>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+        <script src="script.js"></script>
+    </body>
+    
 </html>

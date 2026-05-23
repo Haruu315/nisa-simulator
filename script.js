@@ -12,7 +12,7 @@ function calc() {
     const principalData = []
 
     for (let month = 1; month <= years * 12; month++) {
-        total = total * (1 + monthRate) + monthly
+        total = total * 1 + total * monthRate + monthly 
 
         if (month % 12 === 0) {
             let year = month / 12
